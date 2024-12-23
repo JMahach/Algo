@@ -1,46 +1,32 @@
-import psycopg2
-import random
+def lst_divisors(n):
+    ''' Возвращает список делителей числа'''
+    res = []
+    for i in range(1, n+1):
+        if n % i == 0:
+            res.append(i)
+
+    return res
 
 
-host = "77.50.236.204"
-port = "42032"
-database = "params"
-user = "params"
-password = "pass1594826"
+def prime_number(n):
+    '''Проверяет число на простоту'''
+    d = 2
+    while n % d != 0:
+        d += 1
+    return d == n
 
 
-conn = psycopg2.connect(
-    host=host,
-    port=port,
-    dbname=database,
-    user=user,
-    password=password
-)
+def lst_divisors_prime(n):
+    ''' возвращает список простых делителей числа'''
+    res = []
+    N = lst_divisors(n)
+
+    for i in N:
+        if prime_number(i) is True:
+            res.append(i)
+    return res
 
 
-cur = conn.cursor()
-
-
-def generate_random_data():
-    name = f"test-{random.randint(1, 100000)}"
-    location = random.choice(["Data Center 1", "Data Center 2", "Data Center 3"])
-    ip = f"192.168.{random.randint(0, 255)}.{random.randint(0, 255)}"
-    port = random.randint(1024, 65535)
-    cpu = random.randint(1, 32)  # Генерация случайного количества ядер CPU
-    ram = random.randint(1024, 65536)  # Генерация случайного объема RAM в MB
-    return (name, location, ip, port, cpu, ram)
-
-
-for _ in range(2):
-    data = generate_random_data()
-    cur.execute(
-        "INSERT INTO серверы (name, location, ip, port, CPU, RAM) VALUES (%s, %s, %s, %s, %s, %s)",
-        data
-    )
-
-
-conn.commit()
-cur.close()
-conn.close()
-
-print(generate_random_data())
+print(prime_number(8))
+print(lst_divisors(8))
+print(lst_divisors_prime(4))
