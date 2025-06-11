@@ -1,32 +1,79 @@
-def lst_divisors(n):
-    ''' Возвращает список делителей числа'''
-    res = []
-    for i in range(1, n+1):
-        if n % i == 0:
-            res.append(i)
+# flake8: noqa
 
-    return res
+# 1 Типы данных
+#   str/int/float
 
+# Переменная
+# Тип данных
+# Объект
+# Сущность
 
-def prime_number(n):
-    '''Проверяет число на простоту'''
-    d = 2
-    while n % d != 0:
-        d += 1
-    return d == n
+ebanaya_peremennaya_govna = 5020
+peremennaya = 10  # int
+peremennaya2 = 10.129308  # float
+peremennaya3 = "abab"  # str
 
 
-def lst_divisors_prime(n):
-    ''' возвращает список простых делителей числа'''
-    res = []
-    N = lst_divisors(n)
+# 2 Вывод на экран. print()
+#   Узнать тип данных type()
+#   str() и int() и float()
 
-    for i in N:
-        if prime_number(i) is True:
-            res.append(i)
-    return res
+# Функция
+# Параметр
+# Передача
+# Возврат
 
 
-print(prime_number(8))
-print(lst_divisors(8))
-print(lst_divisors_prime(4))
+p = str(10)
+print(type(p))
+print(p)
+
+
+# 3 Операторы сложения и вычитания, деления
+# Оператор
+
+a = peremennaya + peremennaya2
+b = peremennaya - peremennaya2
+c = peremennaya/peremennaya2
+print(a)
+print(b)
+print(c)
+
+
+
+
+
+
+
+
+
+
+# Задача 1:
+# 	Объяви три переменные:
+# 		Переменная типа int = 15
+# 		Переменная типа float = 7.5
+# 		Переменная типа str = хуй дроченый
+
+# 	1. Выведи каждую переменную на экран с помощью print().
+# 	2. Вычислите сумму и разность двух числовых переменных (int и float) с использованием операторов + и -, затем  выведи полученные результаты.
+# 	3. Так же выведи фразы.
+# 		Хуй дроченный = сумме двух чисел см
+# 		Хуй дроченный = разности двух чисел см
+
+
+# Задача 2:
+# 	Дан список температур в строках:
+# 	a = "23.5"
+# 	b = "25.0"
+# 	c = "21.7"
+# 	d = "22.9"
+
+# 	Преобразуй их в числа и выведи среднюю температуру.
+
+
+# a = "23.5"
+# b = "25.0"
+# c = "21.7"
+# d = "22.9"
+# e = float(a) + float(b) + float(c) + float(d)
+# print(e/4)
